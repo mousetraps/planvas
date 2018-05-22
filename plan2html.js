@@ -7,12 +7,13 @@
 var marked = require('marked');
 var fs = require('fs');
 var Handlebars = require('handlebars');
+var path = require('path');
 
 marked.setOptions({
     gfm: true
 });
 
-var leantemplate = fs.readFileSync('presentation.html', 'utf8');
+var leantemplate = fs.readFileSync(path.join(__dirname, 'presentation.html'), 'utf8');
 
 if (process.argv.length <= 2) {
     console.log(`  No arguments supplied.  Give me some MD files to munch.
